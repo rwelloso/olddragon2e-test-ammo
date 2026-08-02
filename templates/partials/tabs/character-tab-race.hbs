@@ -1,0 +1,95 @@
+<div class="character-tab-race">
+
+    {{!-- Habilidades de Raça --}}
+    <div class="race-abilities">
+        <label class="tab-title">{{localize "olddragon2e.race_abilities"}}</label>
+        {{#if actor.system.race}}
+            {{#if actor.system.race_abilities}}
+            <ol class="item-list">
+                {{#each actor.system.race_abilities as |ability|}}
+                <li class="item" data-item-id="{{ability._id}}">
+                    <div class="ability-header">
+                        <span class="ability-level">1</span>
+                        <span><strong>{{ability.name}}</strong>:</span>
+                        {{#if ability.system.daily_uses}}
+                        <div class="daily-uses">
+                            {{#generateRaceAbilityDailyUses
+                            ability.system.daily_uses
+                            (lookup ability.flags.olddragon2e 'daily-uses')
+                            ability._id}}
+                            {{/generateRaceAbilityDailyUses}}
+                        </div>
+                        {{/if}}
+                    </div>
+                    {{{ability.system.description}}}
+                    {{#if (or ability.system.jp.jpc ability.system.jp.jpd ability.system.jp.jps)}}
+                    <div class="jp-selector">
+                        <label class="font-bold">{{localize "olddragon2e.jp_selector"}}</label>
+                        <select name="system.jp_race_bonus" value="{{actor.system.jp_race_bonus}}">
+                            <option value="none" selected>{{localize "olddragon2e.null"}}</option>
+                            {{#if ability.system.jp.jpd}}
+                            <option value="jpd" {{#ifCond actor.system.jp_race_bonus '==' "jpd"}} selected {{/ifCond}}>{{localize "olddragon2e.jpd"}}</option>
+                            {{/if}}
+                            {{#if ability.system.jp.jpc}}
+                            <option value="jpc" {{#ifCond actor.system.jp_race_bonus '==' "jpc"}} selected {{/ifCond}}>{{localize "olddragon2e.jpc"}}</option>
+                            {{/if}}
+                            {{#if ability.system.jp.jps}}
+                            <option value="jps" {{#ifCond actor.system.jp_race_bonus '==' "jps"}} selected {{/ifCond}}>{{localize "olddragon2e.jps"}}</option>
+                            {{/if}}
+                        </select>
+                    </div>
+                    {{/if}}
+                    {{#if ability.system.variable_construction.choices_count}}
+                    <div class="variable-construction">
+                        {{generateVariableConstructionSelectors ability actor.system.variable_construction_selections}}
+                    </div>
+                    {{/if}}
+                </li>
+                {{/each}}
+            </ol>
+            {{else}}
+            <p class="text-center">A raça <strong>{{actor.system.race.name}}</strong> não possui habilidades vinculadas.</p>
+            {{/if}}
+        {{else}}
+        <p class="text-center">Adicione uma raça, para visualizar as habilidades listadas aqui.</p>
+        {{/if}}
+    </div>
+
+    {{!-- Movimento - Observações --}}
+    {{#if system.race.system.movement_notes}}
+        <p class="movement-notes">
+            <img src="systems/olddragon2e/assets/icons/movement.svg" alt="Movimento">
+            <strong>{{localize "olddragon2e.mv"}}:</strong>
+            <span>{{system.race.system.movement_notes}}</span>
+        </p>
+    {{/if}}
+
+    {{!-- Infravisão --}}
+    {{#if system.race.system.infravision}}
+        <p>
+            <i class="fa-solid fa-eye fa-sm"></i>
+            <strong>{{localize "olddragon2e.infravision"}}:</strong>
+            <span> de {{system.race.system.infravision}} metros.</span>
+            {{#if system.race.system.infravision_notes}}
+                <span> {{system.race.system.infravision_notes}}</span>
+            {{/if}}
+        </p>
+    {{/if}}
+
+    {{!-- Alinhamento - Observações/Tendência --}}
+    {{#if system.race}}
+        <p class="alignment-notes">
+            <img src="systems/olddragon2e/assets/icons/alignment.svg" alt="Tendência de Alinhamento">
+            <strong>{{localize "olddragon2e.alignment_tendency"}}:</strong>
+            {{#if system.race.system.alignment_notes}}
+                <span>{{system.race.system.alignment_notes}}.</span>
+            {{else}}
+                {{#ifCond system.race.system.alignment_tendency '!=' "none"}}
+                <span>tendem a ser {{localize (lookup config.alignment_tendency system.race.system.alignment_tendency)}}.</span>
+                {{else}}
+                <span>{{localize "olddragon2e.any"}}.</span>
+                {{/ifCond}}
+            {{/if}}
+        </p>
+    {{/if}}
+</div>

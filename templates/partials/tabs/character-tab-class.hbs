@@ -1,0 +1,106 @@
+<div class="character-tab-class">
+    {{!-- Habilidades de Classe --}}
+    <div class="class-abilities">
+        <label class="tab-title">{{localize "olddragon2e.class_abilities"}}</label>
+        {{#if actor.system.class}}
+            {{#if actor.system.class_abilities}}
+            <ol class="item-list">
+                {{#each actor.system.class_abilities as |ability|}}
+                {{#ifCond ability.system.level '<=' actor.system.level}}
+                <li class="item" data-item-id="{{ability._id}}">
+                    <div class="ability">
+                        <span class="ability-level">{{ability.system.level}}</span>
+                        <span><strong>{{ability.name}}</strong>:</span>
+                        {{#hasDailyUses ability.system.daily_uses}}
+                            <div class="daily-uses">
+                                {{#generateClassAbilityDailyUses
+                                ability.system.daily_uses
+                                actor.system.level
+                                (lookup ability.flags.olddragon2e 'daily-uses')
+                                ability._id}}
+                                {{/generateClassAbilityDailyUses}}
+                            </div>
+                        {{/hasDailyUses}}
+                    </div>
+                    {{{ability.system.description}}}
+                    {{#ifCondAndEqual ability.system.level3 actor.system.level 3}}
+                    <span class="ability-on-level">{{localize "olddragon2e.class_ability.on_level.3"}}</span>
+                    {{{ability.system.level3}}}
+                    {{/ifCondAndEqual}}
+                    {{#ifCondAndEqual ability.system.level6 actor.system.level 6}}
+                    <span class="ability-on-level">{{localize "olddragon2e.class_ability.on_level.6"}}</span>
+                    {{{ability.system.level6}}}
+                    {{/ifCondAndEqual}}
+                    {{#ifCondAndEqual ability.system.level10 actor.system.level 10}}
+                    <span class="ability-on-level">{{localize "olddragon2e.class_ability.on_level.10"}}</span>
+                    {{{ability.system.level10}}}
+                    {{/ifCondAndEqual}}
+                    {{#if ability.system.rogue_talents.length}}
+                    <div class="rogue-talent-points">
+                        <div class="rogue-talent-points-summary">
+                            <div><strong>{{localize "olddragon2e.rogue_talent_points"}}</strong>: {{../actor.system.rogue_talent_points_spent}} / {{../actor.system.rogue_talent_total_points_available}}</div>
+                            <div>({{localize "olddragon2e.rogue_talent_remaining"}}: {{../actor.system.rogue_talent_points_remaining}})</div>
+                        </div>
+                        <ol>
+                            {{#each ../rogue_talents as |talent|}}
+                            <li>
+                                <div class="rogue-talent-item-points">
+                                    <div>
+                                        <span class="font-bold">{{talent.label}}</span>
+                                        <a class="talent-roll" data-talent-label="{{talent.label}}" data-talent-score="{{talent.score}}" title="{{localize 'olddragon2e.rogue_talent_test'}} {{talent.label}}">
+                                            <i class="fa-light fa-dice-d6 fa-sm"></i>&nbsp;1-{{talent.score}} em 1d6
+                                        </a>
+                                        {{#if talent.race_bonus}}
+                                        <span class="talent-race-bonus">&nbsp;(+{{talent.race_bonus}} {{localize "olddragon2e.race"}})</span>
+                                        {{/if}}
+                                    </div>
+                                    <select class="talent-points-select" name="system.rogue_talent_points.{{talent.key}}" data-dtype="Number">
+                                        <option value="0" {{#ifCond talent.points '===' 0}}selected{{/ifCond}}>0</option>
+                                        <option value="1" {{#ifCond talent.points '===' 1}}selected{{/ifCond}}>1</option>
+                                        <option value="2" {{#ifCond talent.points '===' 2}}selected{{/ifCond}}>2</option>
+                                        <option value="3" {{#ifCond talent.points '===' 3}}selected{{/ifCond}}>3</option>
+                                    </select>
+                                </div>
+                                {{#if talent.description}}
+                                <div class="talent-description">{{talent.description}}</div>
+                                {{/if}}
+                            </li>
+                            {{/each}}
+                        </ol>
+                    </div>
+                    {{/if}}
+                </li>
+                {{/ifCond}}
+                {{/each}}
+            </ol>
+            {{else}}
+            <p class="text-center">A classe <strong>{{actor.system.class.name}}</strong> não possui habilidades vinculadas.</p>
+            {{/if}}
+        {{else}}
+        <p class="text-center">Adicione uma classe, para visualizar as habilidades listadas aqui.</p>
+        {{/if}}
+    </div>
+
+    {{!-- Restrição de Equipamentos --}}
+    {{#if actor.system.class}}
+        <div class="equipment-restrictions">
+            <ol>
+                <li>
+                    <span class="diamond">⬥</span>
+                    <strong>{{localize "olddragon2e.class_ability.equipment_restrictions.weapons"}}:</strong>
+                    <span>{{actor.system.class.system.equipment_restrictions.weapons}}</span>
+                </li>
+                <li>
+                    <span class="diamond">⬥</span>
+                    <strong>{{localize "olddragon2e.class_ability.equipment_restrictions.armors"}}:</strong>
+                    <span>{{actor.system.class.system.equipment_restrictions.armors}}</span>
+                </li>
+                <li>
+                    <span class="diamond">⬥</span>
+                    <strong>{{localize "olddragon2e.class_ability.equipment_restrictions.magic_items"}}:</strong>
+                    <span>{{actor.system.class.system.equipment_restrictions.magic_items}}</span>
+                </li>
+            </ol>
+        </div>
+    {{/if}}
+</div>

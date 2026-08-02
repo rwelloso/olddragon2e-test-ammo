@@ -1,0 +1,154 @@
+{
+  "id": "olddragon2e-test",
+  "title": "Old Dragon 2e (TESTE - ammo tracking)",
+  "description": "Sistema para Old Dragon 2a Edição | System for Old Dragon 2nd Edition",
+  "authors": [
+    {
+      "name": "Old Dragon Editora",
+      "url": "https://olddragon.com.br/"
+    }
+  ],
+  "url": "This is auto replaced",
+  "license": "https://creativecommons.org/licenses/by-sa/4.0/deed.pt-br",
+  "readme": "https://github.com/olddragoneditora/olddragon2e-foundryvtt/blob/main/README.md",
+  "bugs": "https://github.com/olddragoneditora/olddragon2e-foundryvtt/issues",
+  "changelog": "https://github.com/olddragoneditora/olddragon2e-foundryvtt/releases",
+  "version": "1.0.0-test-ammo",
+  "compatibility": {
+    "minimum": "13",
+    "verified": "14"
+  },
+  "scripts": [],
+  "esmodules": ["module/olddragon2e.js"],
+  "styles": ["styles/olddragon2e.css"],
+  "packs": [
+    {
+      "name": "races",
+      "label": "Raças",
+      "path": "packs/races",
+      "type": "Item",
+      "banner": "systems/olddragon2e/assets/compendium-banner/races.webp"
+    },
+    {
+      "name": "classes",
+      "label": "Classes",
+      "path": "packs/classes",
+      "type": "Item",
+      "banner": "systems/olddragon2e/assets/compendium-banner/classes.webp"
+    },
+    {
+      "name": "equipment",
+      "label": "Equipamentos",
+      "path": "packs/equipment",
+      "type": "Item",
+      "banner": "systems/olddragon2e/assets/compendium-banner/equipment.webp"
+    },
+    {
+      "name": "magic-items",
+      "label": "Itens Mágicos",
+      "path": "packs/magic-items",
+      "type": "Item",
+      "banner": "systems/olddragon2e/assets/compendium-banner/magic-items.webp"
+    },
+    {
+      "name": "spells",
+      "label": "Magias",
+      "path": "packs/spells",
+      "type": "Item",
+      "banner": "systems/olddragon2e/assets/compendium-banner/spells.webp"
+    },
+    {
+      "name": "monsters",
+      "label": "Monstros & Inimigos",
+      "path": "packs/monsters",
+      "type": "Actor",
+      "banner": "systems/olddragon2e/assets/compendium-banner/monsters.webp"
+    },
+    {
+      "name": "rollable-tables",
+      "label": "Tabelas de Rolagem",
+      "path": "packs/rollable-tables",
+      "type": "RollTable",
+      "banner": "systems/olddragon2e/assets/compendium-banner/rollable-tables.webp"
+    },
+    {
+      "name": "characters",
+      "label": "Personagens Prontos",
+      "path": "packs/characters",
+      "type": "Actor",
+      "banner": "systems/olddragon2e/assets/compendium-banner/characters.webp"
+    },
+    {
+      "name": "srd",
+      "label": "SRD: Documento de Referência",
+      "path": "packs/srd",
+      "type": "JournalEntry",
+      "banner": "systems/olddragon2e/assets/compendium-banner/srd.webp"
+    }
+  ],
+  "packFolders": [
+    {
+      "name": "SRD",
+      "sorting": "m",
+      "color": "#000000",
+      "packs": [
+        "races",
+        "classes",
+        "equipment",
+        "magic-items",
+        "spells",
+        "monsters",
+        "rollable-tables",
+        "characters",
+        "srd"
+      ]
+    }
+  ],
+  "languages": [
+    {
+      "lang": "en",
+      "name": "English",
+      "path": "lang/en.json"
+    },
+    {
+      "lang": "pt-BR",
+      "name": "Português Brasileiro",
+      "path": "lang/pt-BR.json"
+    }
+  ],
+  "documentTypes": {
+    "Actor": {
+      "character": {},
+      "monster": {},
+      "retainer": {}
+    },
+    "Item": {
+      "weapon": {},
+      "armor": {},
+      "shield": {},
+      "misc": {},
+      "container": {},
+      "vehicle": {},
+      "spell": {},
+      "race": {},
+      "race_ability": {},
+      "class": {},
+      "class_ability": {},
+      "monster_attack": {}
+    }
+  },
+  "relationships": {
+    "requires": [],
+    "conflicts": []
+  },
+  "socket": true,
+  "manifest": "This is auto replaced",
+  "download": "This is auto replaced",
+  "initiative": "1d20",
+  "grid": {
+    "distance": 1.5,
+    "units": "m"
+  },
+  "primaryTokenAttribute": "hp",
+  "background": "systems/olddragon2e/assets/system-cover.webp"
+}

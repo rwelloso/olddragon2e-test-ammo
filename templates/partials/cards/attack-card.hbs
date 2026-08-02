@@ -1,0 +1,93 @@
+<div class="weapon-type">
+	{{#ifCond system.type '==' "melee"}}
+	<img src="/systems/olddragon2e/assets/icons/melee.svg" title="{{localize 'olddragon2e.weapon_types.melee'}}">
+	{{/ifCond}}
+	{{#ifCond system.type '==' "throwing"}}
+	<img src="/systems/olddragon2e/assets/icons/throw.svg" title="{{localize 'olddragon2e.weapon_types.throwing'}}">
+	{{/ifCond}}
+	{{#ifCond system.type '==' "ranged"}}
+	<img src="/systems/olddragon2e/assets/icons/ranged.svg" title="{{localize 'olddragon2e.weapon_types.ranged'}}">
+	{{/ifCond}}
+	{{#ifCond system.type '==' "ammunition"}}
+	<img src="/systems/olddragon2e/assets/icons/ammunition.svg" title="{{localize 'olddragon2e.weapon_types.ammunition'}}">
+	{{/ifCond}}
+</div>
+<div class="weapon-name">
+    <a class="item-edit" title="{{localize 'olddragon2e.open'}}">{{truncate name 22}}</a>
+</div>
+<div class="weapon-range">
+	{{#if system.shoot_range}}
+	{{system.shoot_range}}
+	{{else if system.throw_range}}
+	{{system.throw_range}}
+	{{else}}
+	–
+	{{/if}}
+</div>
+<div class="weapon-bac">
+	{{#ifCond system.type '==' "melee"}}
+		{{#ifCond system.bonus_ba '!==' null}}
+		<a data-ba="bac" data-ba-bonus class="attack-roll border-button" title="{{localize 'olddragon2e.bac_roll'}}"><i class="fa-thin fa-dice-d20"></i> {{signed_number actor.bac}}+{{system.bonus_ba}}</a>
+		{{else}}
+		<a data-ba="bac" class="attack-roll border-button" title="{{localize 'olddragon2e.bac_roll'}}"><i class="fa-thin fa-dice-d20"></i> {{signed_number actor.bac}}</a>
+		{{/ifCond}}
+	{{/ifCond}}
+	{{#ifCond system.type '==' "throwing"}}
+		{{#ifCond system.bonus_ba '!==' null}}
+		<a data-ba="bac" data-ba-bonus class="attack-roll border-button" title="{{localize 'olddragon2e.bac_roll'}}"><i class="fa-thin fa-dice-d20"></i> {{signed_number actor.bac}}+{{system.bonus_ba}}</a>
+		{{else}}
+		<a data-ba="bac" class="attack-roll border-button" title="{{localize 'olddragon2e.bac_roll'}}"><i class="fa-thin fa-dice-d20"></i> {{signed_number actor.bac}}</a>
+		{{/ifCond}}
+	{{/ifCond}}
+	{{#ifCond system.type '==' "ranged"}}–{{/ifCond}}
+	{{#ifCond system.type '==' "ammunition"}}–{{/ifCond}}
+</div>
+<div class="weapon-bad">
+	{{#ifCond system.type '==' "melee"}}–{{/ifCond}}
+	{{#ifCond system.type '==' "throwing"}}
+		{{#ifCond system.bonus_ba '!==' null}}
+		<a data-ba="bad" data-ba-bonus class="attack-roll border-button" title="{{localize 'olddragon2e.bad_roll'}}"><i class="fa-thin fa-dice-d20"></i> {{signed_number actor.bad}}+{{system.bonus_ba}}</a>
+		{{else}}
+		<a data-ba="bad" class="attack-roll border-button" title="{{localize 'olddragon2e.bad_roll'}}"><i class="fa-thin fa-dice-d20"></i> {{signed_number actor.bad}}</a>
+		{{/ifCond}}
+	{{/ifCond}}
+	{{#ifCond system.type '==' "ranged"}}
+		{{#ifCond system.bonus_ba '!==' null}}
+		<a data-ba="bad" data-ba-bonus class="attack-roll border-button" title="{{localize 'olddragon2e.bad_roll'}}"><i class="fa-thin fa-dice-d20"></i> {{signed_number actor.bad}}+{{system.bonus_ba}}</a>
+		{{else}}
+		<a data-ba="bad" class="attack-roll border-button" title="{{localize 'olddragon2e.bad_roll'}}"><i class="fa-thin fa-dice-d20"></i> {{signed_number actor.bad}}</a>
+		{{/ifCond}}
+	{{/ifCond}}
+	{{#ifCond system.type '==' "ammunition"}}–{{/ifCond}}
+</div>
+<div class="weapon-damage">
+	{{#if system.damage}}
+		<a class="damage-roll border-button" title="{{localize 'olddragon2e.damage_roll'}}">
+			{{{diceIcon system.damage}}}
+			{{#ifCond system.type '==' "melee"}}
+				{{system.damage}}{{#ifCond actor.mod_forca '!=' 0}}{{#ifCond actor.mod_forca '>' 0}}+{{/ifCond}}{{actor.mod_forca}}{{/ifCond}}{{#if system.bonus_damage}}+{{system.bonus_damage}}{{/if}}
+			{{else ifCond system.type '==' "throwing"}}
+				{{system.damage}}{{#ifCond actor.mod_forca '!=' 0}}{{#ifCond actor.mod_forca '>' 0}}+{{/ifCond}}{{actor.mod_forca}}{{/ifCond}}{{#if system.bonus_damage}}+{{system.bonus_damage}}{{/if}}
+			{{else ifCond system.type '==' "ammunition"}}
+				{{system.damage}}{{#if system.bonus_damage}}+{{system.bonus_damage}}{{/if}}
+			{{/ifCond}}{{#if (raceBonusDamage actor this)}}+{{raceBonusDamage actor this}}{{/if}}
+		</a>
+	{{else}}
+	–
+	{{/if}}
+</div>
+<div class="damage-type">
+	{{#ifCond system.damage_type '==' "none"}}
+	–
+	{{/ifCond}}
+	{{#ifCond system.damage_type '==' "bludgeoning"}}
+	<img src="/systems/olddragon2e/assets/icons/bludgeoning.svg" title="{{localize 'olddragon2e.damage_types.bludgeoning'}}">
+	{{/ifCond}}
+	{{#ifCond system.damage_type '==' "piercing"}}
+	<img src="/systems/olddragon2e/assets/icons/piercing.svg" title="{{localize 'olddragon2e.damage_types.piercing'}}">
+	{{/ifCond}}
+	{{#ifCond system.damage_type '==' "slashing"}}
+	<img src="/systems/olddragon2e/assets/icons/slashing.svg" title="{{localize 'olddragon2e.damage_types.slashing'}}">
+	{{/ifCond}}
+</div>
+<div class="weapon-description">{{truncate system.description 25}}</div>
