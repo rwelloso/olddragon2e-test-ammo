@@ -3510,23 +3510,27 @@ const isStoredTokenExpired = function (now = Date.now()) {
  *
  * @param {Actor} actor
  * @param {Item} weapon
- * @returns {{requiresAmmo: boolean, ammoItem: Item|null}}
+ * @returns {{requiresAmmo: boolean, ammoItem: Item|null, ambiguous: boolean}}
  */
 const resolveAmmo = (actor, weapon) => {
   const ammoType = weapon.system.ammo_type ?? 'none';
 
   if (ammoType === 'none') {
-    return { requiresAmmo: false, ammoItem: null };
+    return { requiresAmmo: false, ammoItem: null, ambiguous: false };
   }
 
   if (ammoType === 'self') {
-    return { requiresAmmo: true, ammoItem: weapon };
+    return { requiresAmmo: true, ammoItem: weapon, ambiguous: false };
   }
 
   const equippedAmmo = actor.system.equipped_ammunition ?? [];
-  const ammoItem = equippedAmmo.find((ammo) => ammo.system[ammoType] === true) ?? null;
+  const matches = equippedAmmo.filter((ammo) => ammo.system[ammoType] === true);
 
-  return { requiresAmmo: true, ammoItem };
+  if (matches.length > 1) {
+    return { requiresAmmo: true, ammoItem: null, ambiguous: true };
+  }
+
+  return { requiresAmmo: true, ammoItem: matches[0] ?? null, ambiguous: false };
 };
 
 class OD2CharacterSheet extends foundry.appv1.sheets.ActorSheet {
@@ -3845,6 +3849,10 @@ class OD2CharacterSheet extends foundry.appv1.sheets.ActorSheet {
     let ammoItem = null;
     if (game.settings.get('olddragon2e', 'ammoTracking')) {
       const resolved = resolveAmmo(this.actor, item);
+      if (resolved.ambiguous) {
+        ui.notifications.warn(game.i18n.localize('olddragon2e.warnings.ambiguousAmmo'));
+        return;
+      }
       if (resolved.requiresAmmo && (!resolved.ammoItem || resolved.ammoItem.system.quantity <= 0)) {
         ui.notifications.warn(game.i18n.format('olddragon2e.ammoTracking.outOfAmmo', { weapon: item.name }));
         return;
@@ -5010,6 +5018,10 @@ class OD2RetainerSheet extends foundry.appv1.sheets.ActorSheet {
     let ammoItem = null;
     if (game.settings.get('olddragon2e', 'ammoTracking')) {
       const resolved = resolveAmmo(this.actor, item);
+      if (resolved.ambiguous) {
+        ui.notifications.warn(game.i18n.localize('olddragon2e.warnings.ambiguousAmmo'));
+        return;
+      }
       if (resolved.requiresAmmo && (!resolved.ammoItem || resolved.ammoItem.system.quantity <= 0)) {
         ui.notifications.warn(game.i18n.format('olddragon2e.ammoTracking.outOfAmmo', { weapon: item.name }));
         return;
