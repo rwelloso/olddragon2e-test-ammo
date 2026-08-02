@@ -142,8 +142,8 @@
     "conflicts": []
   },
   "socket": true,
-  "manifest": "This is auto replaced",
-  "download": "This is auto replaced",
+  "manifest": "https://raw.githubusercontent.com/rwelloso/olddragon2e-test-ammo/master/system.json",
+  "download": "https://github.com/rwelloso/olddragon2e-test-ammo/archive/refs/heads/master.zip",
   "initiative": "1d20",
   "grid": {
     "distance": 1.5,
