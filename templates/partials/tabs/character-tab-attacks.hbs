@@ -14,14 +14,14 @@
         <ol class="item-list">
             {{#each attack as |attack id|}}
             <li class="item attack" data-item-id="{{attack._id}}">
-                {{> "systems/olddragon2e/templates/partials/cards/attack-card.hbs" attack actor=@root.system}}
+                {{> "systems/olddragon2e-test/templates/partials/cards/attack-card.hbs" attack actor=@root.system}}
             </li>
             {{/each}}
             {{!-- Armas Naturais --}}
             {{#each natural_weapon_attacks as |nw|}}
             <li>
                 <div class="weapon-type">
-                    <img src="/systems/olddragon2e/assets/icons/natural-weapon.svg" title="{{localize 'olddragon2e.weapon_types.natural_weapon'}}">
+                    <img src="/systems/olddragon2e-test/assets/icons/natural-weapon.svg" title="{{localize 'olddragon2e.weapon_types.natural_weapon'}}">
                 </div>
                 <div class="weapon-name">{{nw.name}}</div>
                 <div class="weapon-range">–</div>
@@ -34,13 +34,13 @@
                 </div>
                 <div class="damage-type">
                     {{#ifCond nw.damage_type '==' "bludgeoning"}}
-                    <img src="/systems/olddragon2e/assets/icons/bludgeoning.svg" title="{{localize 'olddragon2e.damage_types.bludgeoning'}}">
+                    <img src="/systems/olddragon2e-test/assets/icons/bludgeoning.svg" title="{{localize 'olddragon2e.damage_types.bludgeoning'}}">
                     {{/ifCond}}
                     {{#ifCond nw.damage_type '==' "piercing"}}
-                    <img src="/systems/olddragon2e/assets/icons/piercing.svg" title="{{localize 'olddragon2e.damage_types.piercing'}}">
+                    <img src="/systems/olddragon2e-test/assets/icons/piercing.svg" title="{{localize 'olddragon2e.damage_types.piercing'}}">
                     {{/ifCond}}
                     {{#ifCond nw.damage_type '==' "slashing"}}
-                    <img src="/systems/olddragon2e/assets/icons/slashing.svg" title="{{localize 'olddragon2e.damage_types.slashing'}}">
+                    <img src="/systems/olddragon2e-test/assets/icons/slashing.svg" title="{{localize 'olddragon2e.damage_types.slashing'}}">
                     {{/ifCond}}
                 </div>
                 <div class="weapon-description">
@@ -55,7 +55,7 @@
             {{!-- Ataque Desarmado --}}
             <li>
                 <div class="weapon-type">
-                    <img src="/systems/olddragon2e/assets/icons/unarmed.svg" title="{{localize 'olddragon2e.weapon_types.unarmed'}}">
+                    <img src="/systems/olddragon2e-test/assets/icons/unarmed.svg" title="{{localize 'olddragon2e.weapon_types.unarmed'}}">
                 </div>
                 <div class="weapon-name">{{localize 'olddragon2e.unarmed'}}</div>
                 <div class="weapon-range">–</div>
@@ -67,7 +67,7 @@
                     <a class="knockout-roll border-button" title="{{localize 'olddragon2e.knockout_roll'}}"><i class="fa-thin fa-dice-d6"></i> {{localize 'olddragon2e.knockout'}}</a>
                 </div>
                 <div class="damage-type">
-                    <img src="/systems/olddragon2e/assets/icons/bludgeoning.svg" title="{{localize 'olddragon2e.damage_types.bludgeoning'}}">
+                    <img src="/systems/olddragon2e-test/assets/icons/bludgeoning.svg" title="{{localize 'olddragon2e.damage_types.bludgeoning'}}">
                 </div>
                 <div class="weapon-description">
                     Chance de
