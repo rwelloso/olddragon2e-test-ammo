@@ -1,5 +1,5 @@
 {
-  "id": "olddragon2e",
+  "id": "olddragon2e-test",
   "title": "Old Dragon 2e (TESTE - ammo tracking)",
   "description": "Sistema para Old Dragon 2a Edição | System for Old Dragon 2nd Edition",
   "authors": [
@@ -27,63 +27,63 @@
       "label": "Raças",
       "path": "packs/races",
       "type": "Item",
-      "banner": "systems/olddragon2e/assets/compendium-banner/races.webp"
+      "banner": "systems/olddragon2e-test/assets/compendium-banner/races.webp"
     },
     {
       "name": "classes",
       "label": "Classes",
       "path": "packs/classes",
       "type": "Item",
-      "banner": "systems/olddragon2e/assets/compendium-banner/classes.webp"
+      "banner": "systems/olddragon2e-test/assets/compendium-banner/classes.webp"
     },
     {
       "name": "equipment",
       "label": "Equipamentos",
       "path": "packs/equipment",
       "type": "Item",
-      "banner": "systems/olddragon2e/assets/compendium-banner/equipment.webp"
+      "banner": "systems/olddragon2e-test/assets/compendium-banner/equipment.webp"
     },
     {
       "name": "magic-items",
       "label": "Itens Mágicos",
       "path": "packs/magic-items",
       "type": "Item",
-      "banner": "systems/olddragon2e/assets/compendium-banner/magic-items.webp"
+      "banner": "systems/olddragon2e-test/assets/compendium-banner/magic-items.webp"
     },
     {
       "name": "spells",
       "label": "Magias",
       "path": "packs/spells",
       "type": "Item",
-      "banner": "systems/olddragon2e/assets/compendium-banner/spells.webp"
+      "banner": "systems/olddragon2e-test/assets/compendium-banner/spells.webp"
     },
     {
       "name": "monsters",
       "label": "Monstros & Inimigos",
       "path": "packs/monsters",
       "type": "Actor",
-      "banner": "systems/olddragon2e/assets/compendium-banner/monsters.webp"
+      "banner": "systems/olddragon2e-test/assets/compendium-banner/monsters.webp"
     },
     {
       "name": "rollable-tables",
       "label": "Tabelas de Rolagem",
       "path": "packs/rollable-tables",
       "type": "RollTable",
-      "banner": "systems/olddragon2e/assets/compendium-banner/rollable-tables.webp"
+      "banner": "systems/olddragon2e-test/assets/compendium-banner/rollable-tables.webp"
     },
     {
       "name": "characters",
       "label": "Personagens Prontos",
       "path": "packs/characters",
       "type": "Actor",
-      "banner": "systems/olddragon2e/assets/compendium-banner/characters.webp"
+      "banner": "systems/olddragon2e-test/assets/compendium-banner/characters.webp"
     },
     {
       "name": "srd",
       "label": "SRD: Documento de Referência",
       "path": "packs/srd",
       "type": "JournalEntry",
-      "banner": "systems/olddragon2e/assets/compendium-banner/srd.webp"
+      "banner": "systems/olddragon2e-test/assets/compendium-banner/srd.webp"
     }
   ],
   "packFolders": [
@@ -150,5 +150,5 @@
     "units": "m"
   },
   "primaryTokenAttribute": "hp",
-  "background": "systems/olddragon2e/assets/system-cover.webp"
+  "background": "systems/olddragon2e-test/assets/system-cover.webp"
 }
