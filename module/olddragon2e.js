@@ -375,39 +375,39 @@ function calculateAttributeModifier(value) {
 
 async function preloadTemplates() {
   const templatePaths = [
-    'systems/olddragon2e-test/templates/partials/tabs/character-tab-attacks.hbs',
-    'systems/olddragon2e-test/templates/partials/tabs/character-tab-race.hbs',
-    'systems/olddragon2e-test/templates/partials/tabs/character-tab-class.hbs',
-    'systems/olddragon2e-test/templates/partials/tabs/character-tab-spells.hbs',
-    'systems/olddragon2e-test/templates/partials/tabs/character-tab-equipment.hbs',
-    'systems/olddragon2e-test/templates/partials/tabs/character-tab-details.hbs',
-    'systems/olddragon2e-test/templates/partials/tabs/monster-tab-attacks.hbs',
-    'systems/olddragon2e-test/templates/partials/tabs/monster-tab-info.hbs',
-    'systems/olddragon2e-test/templates/partials/tabs/retainer-tab-attacks.hbs',
-    'systems/olddragon2e-test/templates/partials/tabs/retainer-tab-heroic-action.hbs',
-    'systems/olddragon2e-test/templates/partials/tabs/retainer-tab-equipment.hbs',
-    'systems/olddragon2e-test/templates/partials/tabs/retainer-tab-details.hbs',
-    'systems/olddragon2e-test/templates/partials/cards/attack-card.hbs',
-    'systems/olddragon2e-test/templates/partials/cards/weapon-card.hbs',
-    'systems/olddragon2e-test/templates/partials/cards/armor-card.hbs',
-    'systems/olddragon2e-test/templates/partials/cards/shield-card.hbs',
-    'systems/olddragon2e-test/templates/partials/cards/misc-card.hbs',
-    'systems/olddragon2e-test/templates/partials/cards/container-card.hbs',
-    'systems/olddragon2e-test/templates/partials/cards/vehicle-card.hbs',
-    'systems/olddragon2e-test/templates/partials/cards/spell-card.hbs',
-    'systems/olddragon2e-test/templates/partials/tabs/race-tab-about.hbs',
-    'systems/olddragon2e-test/templates/partials/tabs/race-tab-features.hbs',
-    'systems/olddragon2e-test/templates/partials/tabs/race-tab-abilities.hbs',
-    'systems/olddragon2e-test/templates/partials/cards/race_ability-card.hbs',
-    'systems/olddragon2e-test/templates/partials/tabs/race-ability-tab-about.hbs',
-    'systems/olddragon2e-test/templates/partials/tabs/race-ability-tab-mechanics.hbs',
-    'systems/olddragon2e-test/templates/partials/tabs/class-tab-about.hbs',
-    'systems/olddragon2e-test/templates/partials/tabs/class-tab-features.hbs',
-    'systems/olddragon2e-test/templates/partials/tabs/class-tab-abilities.hbs',
-    'systems/olddragon2e-test/templates/partials/cards/class_ability-card.hbs',
-    'systems/olddragon2e-test/templates/partials/tabs/class-ability-tab-about.hbs',
-    'systems/olddragon2e-test/templates/partials/tabs/class-ability-tab-mechanics.hbs',
-    'systems/olddragon2e-test/templates/partials/cards/monster_attack-card.hbs',
+    'systems/olddragon2e/templates/partials/tabs/character-tab-attacks.hbs',
+    'systems/olddragon2e/templates/partials/tabs/character-tab-race.hbs',
+    'systems/olddragon2e/templates/partials/tabs/character-tab-class.hbs',
+    'systems/olddragon2e/templates/partials/tabs/character-tab-spells.hbs',
+    'systems/olddragon2e/templates/partials/tabs/character-tab-equipment.hbs',
+    'systems/olddragon2e/templates/partials/tabs/character-tab-details.hbs',
+    'systems/olddragon2e/templates/partials/tabs/monster-tab-attacks.hbs',
+    'systems/olddragon2e/templates/partials/tabs/monster-tab-info.hbs',
+    'systems/olddragon2e/templates/partials/tabs/retainer-tab-attacks.hbs',
+    'systems/olddragon2e/templates/partials/tabs/retainer-tab-heroic-action.hbs',
+    'systems/olddragon2e/templates/partials/tabs/retainer-tab-equipment.hbs',
+    'systems/olddragon2e/templates/partials/tabs/retainer-tab-details.hbs',
+    'systems/olddragon2e/templates/partials/cards/attack-card.hbs',
+    'systems/olddragon2e/templates/partials/cards/weapon-card.hbs',
+    'systems/olddragon2e/templates/partials/cards/armor-card.hbs',
+    'systems/olddragon2e/templates/partials/cards/shield-card.hbs',
+    'systems/olddragon2e/templates/partials/cards/misc-card.hbs',
+    'systems/olddragon2e/templates/partials/cards/container-card.hbs',
+    'systems/olddragon2e/templates/partials/cards/vehicle-card.hbs',
+    'systems/olddragon2e/templates/partials/cards/spell-card.hbs',
+    'systems/olddragon2e/templates/partials/tabs/race-tab-about.hbs',
+    'systems/olddragon2e/templates/partials/tabs/race-tab-features.hbs',
+    'systems/olddragon2e/templates/partials/tabs/race-tab-abilities.hbs',
+    'systems/olddragon2e/templates/partials/cards/race_ability-card.hbs',
+    'systems/olddragon2e/templates/partials/tabs/race-ability-tab-about.hbs',
+    'systems/olddragon2e/templates/partials/tabs/race-ability-tab-mechanics.hbs',
+    'systems/olddragon2e/templates/partials/tabs/class-tab-about.hbs',
+    'systems/olddragon2e/templates/partials/tabs/class-tab-features.hbs',
+    'systems/olddragon2e/templates/partials/tabs/class-tab-abilities.hbs',
+    'systems/olddragon2e/templates/partials/cards/class_ability-card.hbs',
+    'systems/olddragon2e/templates/partials/tabs/class-ability-tab-about.hbs',
+    'systems/olddragon2e/templates/partials/tabs/class-ability-tab-mechanics.hbs',
+    'systems/olddragon2e/templates/partials/cards/monster_attack-card.hbs',
   ];
 
   return foundry.applications.handlebars.loadTemplates(templatePaths);
@@ -425,7 +425,7 @@ Hooks.once('ready', async () => {
     macro = await Macro.create({
       name: macroName,
       type: 'script',
-      img: 'systems/olddragon2e-test/assets/icons/d6.svg',
+      img: 'systems/olddragon2e/assets/icons/d6.svg',
       command: `
 const content = \`
 <form>
@@ -702,17 +702,17 @@ function onSpellShow(event) {
 
 class OD2Item extends Item {
   chatTemplate = {
-    attack: 'systems/olddragon2e-test/templates/partials/cards/attack-card.hbs',
-    weapon: 'systems/olddragon2e-test/templates/partials/cards/weapon-card.hbs',
-    armor: 'systems/olddragon2e-test/templates/partials/cards/armor-card.hbs',
-    shield: 'systems/olddragon2e-test/templates/partials/cards/shield-card.hbs',
-    misc: 'systems/olddragon2e-test/templates/partials/cards/misc-card.hbs',
-    container: 'systems/olddragon2e-test/templates/partials/cards/container-card.hbs',
-    vehicle: 'systems/olddragon2e-test/templates/partials/cards/vehicle-card.hbs',
-    spell: 'systems/olddragon2e-test/templates/chat/spell-chat.hbs',
-    race_ability: 'systems/olddragon2e-test/templates/partials/cards/race_ability-card.hbs',
-    class_ability: 'systems/olddragon2e-test/templates/partials/cards/class_ability-card.hbs',
-    monster_attack: 'systems/olddragon2e-test/templates/partials/cards/monster_attack-card.hbs',
+    attack: 'systems/olddragon2e/templates/partials/cards/attack-card.hbs',
+    weapon: 'systems/olddragon2e/templates/partials/cards/weapon-card.hbs',
+    armor: 'systems/olddragon2e/templates/partials/cards/armor-card.hbs',
+    shield: 'systems/olddragon2e/templates/partials/cards/shield-card.hbs',
+    misc: 'systems/olddragon2e/templates/partials/cards/misc-card.hbs',
+    container: 'systems/olddragon2e/templates/partials/cards/container-card.hbs',
+    vehicle: 'systems/olddragon2e/templates/partials/cards/vehicle-card.hbs',
+    spell: 'systems/olddragon2e/templates/chat/spell-chat.hbs',
+    race_ability: 'systems/olddragon2e/templates/partials/cards/race_ability-card.hbs',
+    class_ability: 'systems/olddragon2e/templates/partials/cards/class_ability-card.hbs',
+    monster_attack: 'systems/olddragon2e/templates/partials/cards/monster_attack-card.hbs',
   };
 
   async roll() {
@@ -750,7 +750,7 @@ class OD2ItemSheet extends foundry.appv1.sheets.ItemSheet {
   }
 
   get template() {
-    return `systems/olddragon2e-test/templates/sheets/${this.item.type}-sheet.hbs`;
+    return `systems/olddragon2e/templates/sheets/${this.item.type}-sheet.hbs`;
   }
 
   async getData() {
@@ -3536,7 +3536,7 @@ const resolveAmmo = (actor, weapon) => {
 class OD2CharacterSheet extends foundry.appv1.sheets.ActorSheet {
   static get defaultOptions() {
     return foundry.utils.mergeObject(super.defaultOptions, {
-      template: 'systems/olddragon2e-test/templates/sheets/character-sheet.hbs',
+      template: 'systems/olddragon2e/templates/sheets/character-sheet.hbs',
       classes: ['olddragon2e', 'sheet', 'character'],
       width: 840,
       height: 780,
@@ -3864,7 +3864,7 @@ class OD2CharacterSheet extends foundry.appv1.sheets.ActorSheet {
 
     await showDialog({
       title: `Rolar Ataque`,
-      content: 'systems/olddragon2e-test/templates/dialog/characters/attack-roll-dialog.hbs',
+      content: 'systems/olddragon2e/templates/dialog/characters/attack-roll-dialog.hbs',
       data: {
         formula: attackRoll.printFormula,
       },
@@ -3906,7 +3906,7 @@ class OD2CharacterSheet extends foundry.appv1.sheets.ActorSheet {
 
     await showDialog({
       title: `Rolar Ataque Desarmado`,
-      content: 'systems/olddragon2e-test/templates/dialog/characters/unarmed-attack-roll-dialog.hbs',
+      content: 'systems/olddragon2e/templates/dialog/characters/unarmed-attack-roll-dialog.hbs',
       data: {
         formula: unarmedAttackRoll.printFormula,
       },
@@ -3936,7 +3936,7 @@ class OD2CharacterSheet extends foundry.appv1.sheets.ActorSheet {
 
     await showDialog({
       title: `Rolar Ataque`,
-      content: 'systems/olddragon2e-test/templates/dialog/characters/attack-roll-dialog.hbs',
+      content: 'systems/olddragon2e/templates/dialog/characters/attack-roll-dialog.hbs',
       data: { formula: attackRoll.printFormula },
       buttons: {
         roll: {
@@ -3964,7 +3964,7 @@ class OD2CharacterSheet extends foundry.appv1.sheets.ActorSheet {
 
     await showDialog({
       title: `Rolar Dano`,
-      content: 'systems/olddragon2e-test/templates/dialog/characters/damage-roll-dialog.hbs',
+      content: 'systems/olddragon2e/templates/dialog/characters/damage-roll-dialog.hbs',
       buttons: {
         roll: {
           icon: "<i class='fa-solid fa-dice-d20'></i>",
@@ -3998,7 +3998,7 @@ class OD2CharacterSheet extends foundry.appv1.sheets.ActorSheet {
 
     await showDialog({
       title: `Rolar Dano`,
-      content: 'systems/olddragon2e-test/templates/dialog/characters/damage-roll-dialog.hbs',
+      content: 'systems/olddragon2e/templates/dialog/characters/damage-roll-dialog.hbs',
       buttons: {
         roll: {
           icon: "<i class='fa-solid fa-dice-d20'></i>",
@@ -4044,7 +4044,7 @@ class OD2CharacterSheet extends foundry.appv1.sheets.ActorSheet {
 
     await showDialog({
       title: `Chance de nocaute`,
-      content: 'systems/olddragon2e-test/templates/dialog/characters/knockout-roll-dialog.hbs',
+      content: 'systems/olddragon2e/templates/dialog/characters/knockout-roll-dialog.hbs',
       data: {
         formula: knockoutRoll.printFormula,
       },
@@ -4084,7 +4084,7 @@ class OD2CharacterSheet extends foundry.appv1.sheets.ActorSheet {
       }
     }
 
-    const chatTemplate = 'systems/olddragon2e-test/templates/chat/spell-chat.hbs';
+    const chatTemplate = 'systems/olddragon2e/templates/chat/spell-chat.hbs';
     let chatData = {
       user: game.user.id,
       speaker: { alias: this.actor.name },
@@ -4310,7 +4310,7 @@ class OD2CharacterSheet extends foundry.appv1.sheets.ActorSheet {
 
     await showDialog({
       title: `Teste de ${statLabel}`,
-      content: 'systems/olddragon2e-test/templates/dialog/characters/stat-roll-dialog.hbs',
+      content: 'systems/olddragon2e/templates/dialog/characters/stat-roll-dialog.hbs',
       data: {
         formula: statRoll.formula(),
       },
@@ -4342,7 +4342,7 @@ class OD2CharacterSheet extends foundry.appv1.sheets.ActorSheet {
 
     await showDialog({
       title: `Teste de ${jpLabel}`,
-      content: 'systems/olddragon2e-test/templates/dialog/characters/jp-roll-dialog.hbs',
+      content: 'systems/olddragon2e/templates/dialog/characters/jp-roll-dialog.hbs',
       data: {
         formula: jpRoll.formula(),
       },
@@ -4375,7 +4375,7 @@ class OD2CharacterSheet extends foundry.appv1.sheets.ActorSheet {
 
     await showDialog({
       title: `Teste de ${baLabel}`,
-      content: 'systems/olddragon2e-test/templates/dialog/characters/ba-roll-dialog.hbs',
+      content: 'systems/olddragon2e/templates/dialog/characters/ba-roll-dialog.hbs',
       data: {
         formula: baRoll.printFormula,
       },
@@ -4407,7 +4407,7 @@ class OD2CharacterSheet extends foundry.appv1.sheets.ActorSheet {
 
     await showDialog({
       title: `Teste de ${talentLabel}`,
-      content: 'systems/olddragon2e-test/templates/dialog/characters/talent-roll-dialog.hbs',
+      content: 'systems/olddragon2e/templates/dialog/characters/talent-roll-dialog.hbs',
       data: {
         formula: talentRoll.formula(),
       },
@@ -4614,7 +4614,7 @@ class OD2CharacterSheet extends foundry.appv1.sheets.ActorSheet {
 class OD2MonsterSheet extends foundry.appv1.sheets.ActorSheet {
   static get defaultOptions() {
     return foundry.utils.mergeObject(super.defaultOptions, {
-      template: 'systems/olddragon2e-test/templates/sheets/monster-sheet.hbs',
+      template: 'systems/olddragon2e/templates/sheets/monster-sheet.hbs',
       classes: ['olddragon2e', 'sheet', 'monster'],
       width: 600,
       height: 650,
@@ -4663,7 +4663,7 @@ class OD2MonsterSheet extends foundry.appv1.sheets.ActorSheet {
 
     await showDialog({
       title: `Teste de Jogada de Proteção`,
-      content: 'systems/olddragon2e-test/templates/dialog/monsters/jp-roll-dialog.hbs',
+      content: 'systems/olddragon2e/templates/dialog/monsters/jp-roll-dialog.hbs',
       data: {
         formula: jpRoll.formula(),
       },
@@ -4692,7 +4692,7 @@ class OD2MonsterSheet extends foundry.appv1.sheets.ActorSheet {
 
     await showDialog({
       title: `Teste de Moral`,
-      content: 'systems/olddragon2e-test/templates/dialog/monsters/mo-roll-dialog.hbs',
+      content: 'systems/olddragon2e/templates/dialog/monsters/mo-roll-dialog.hbs',
       data: {
         formula: moRoll.formula(),
       },
@@ -4721,7 +4721,7 @@ class OD2MonsterSheet extends foundry.appv1.sheets.ActorSheet {
 
     await showDialog({
       title: `Rolar Dado de Vida`,
-      content: 'systems/olddragon2e-test/templates/dialog/monsters/dv-roll-dialog.hbs',
+      content: 'systems/olddragon2e/templates/dialog/monsters/dv-roll-dialog.hbs',
       data: {
         formula: dvRoll.formula(),
       },
@@ -4758,7 +4758,7 @@ class OD2MonsterSheet extends foundry.appv1.sheets.ActorSheet {
 
     await showDialog({
       title: `Rolar Ataque`,
-      content: 'systems/olddragon2e-test/templates/dialog/monsters/attack-roll-dialog.hbs',
+      content: 'systems/olddragon2e/templates/dialog/monsters/attack-roll-dialog.hbs',
       data: {
         formula: attackRoll.printFormula,
       },
@@ -4797,7 +4797,7 @@ class OD2MonsterSheet extends foundry.appv1.sheets.ActorSheet {
 
     await showDialog({
       title: `Rolar Dano`,
-      content: 'systems/olddragon2e-test/templates/dialog/monsters/damage-roll-dialog.hbs',
+      content: 'systems/olddragon2e/templates/dialog/monsters/damage-roll-dialog.hbs',
       buttons: {
         roll: {
           icon: "<i class='fa-solid fa-dice-d20'></i>",
@@ -4888,7 +4888,7 @@ class OD2MonsterSheet extends foundry.appv1.sheets.ActorSheet {
 class OD2RetainerSheet extends foundry.appv1.sheets.ActorSheet {
   static get defaultOptions() {
     return foundry.utils.mergeObject(super.defaultOptions, {
-      template: 'systems/olddragon2e-test/templates/sheets/retainer-sheet.hbs',
+      template: 'systems/olddragon2e/templates/sheets/retainer-sheet.hbs',
       classes: ['olddragon2e', 'sheet', 'retainer'],
       width: 840,
       height: 780,
@@ -5033,7 +5033,7 @@ class OD2RetainerSheet extends foundry.appv1.sheets.ActorSheet {
 
     await showDialog({
       title: `Rolar Ataque`,
-      content: 'systems/olddragon2e-test/templates/dialog/characters/attack-roll-dialog.hbs',
+      content: 'systems/olddragon2e/templates/dialog/characters/attack-roll-dialog.hbs',
       data: {
         formula: attackRoll.printFormula,
       },
@@ -5075,7 +5075,7 @@ class OD2RetainerSheet extends foundry.appv1.sheets.ActorSheet {
 
     await showDialog({
       title: `Rolar Ataque Desarmado`,
-      content: 'systems/olddragon2e-test/templates/dialog/characters/unarmed-attack-roll-dialog.hbs',
+      content: 'systems/olddragon2e/templates/dialog/characters/unarmed-attack-roll-dialog.hbs',
       data: {
         formula: unarmedAttackRoll.printFormula,
       },
@@ -5109,7 +5109,7 @@ class OD2RetainerSheet extends foundry.appv1.sheets.ActorSheet {
 
     await showDialog({
       title: `Rolar Dano`,
-      content: 'systems/olddragon2e-test/templates/dialog/characters/damage-roll-dialog.hbs',
+      content: 'systems/olddragon2e/templates/dialog/characters/damage-roll-dialog.hbs',
       buttons: {
         roll: {
           icon: "<i class='fa-solid fa-dice-d20'></i>",
@@ -5155,7 +5155,7 @@ class OD2RetainerSheet extends foundry.appv1.sheets.ActorSheet {
 
     await showDialog({
       title: `Chance de nocaute`,
-      content: 'systems/olddragon2e-test/templates/dialog/characters/knockout-roll-dialog.hbs',
+      content: 'systems/olddragon2e/templates/dialog/characters/knockout-roll-dialog.hbs',
       data: {
         formula: knockoutRoll.printFormula,
       },
@@ -5186,7 +5186,7 @@ class OD2RetainerSheet extends foundry.appv1.sheets.ActorSheet {
 
     await showDialog({
       title: `Teste de ${statLabel}`,
-      content: 'systems/olddragon2e-test/templates/dialog/characters/stat-roll-dialog.hbs',
+      content: 'systems/olddragon2e/templates/dialog/characters/stat-roll-dialog.hbs',
       data: {
         formula: statRoll.formula(),
       },
@@ -5218,7 +5218,7 @@ class OD2RetainerSheet extends foundry.appv1.sheets.ActorSheet {
 
     await showDialog({
       title: `Teste de ${jpLabel}`,
-      content: 'systems/olddragon2e-test/templates/dialog/characters/jp-roll-dialog.hbs',
+      content: 'systems/olddragon2e/templates/dialog/characters/jp-roll-dialog.hbs',
       data: {
         formula: jpRoll.formula(),
       },
@@ -5251,7 +5251,7 @@ class OD2RetainerSheet extends foundry.appv1.sheets.ActorSheet {
 
     await showDialog({
       title: `Teste de ${baLabel}`,
-      content: 'systems/olddragon2e-test/templates/dialog/characters/ba-roll-dialog.hbs',
+      content: 'systems/olddragon2e/templates/dialog/characters/ba-roll-dialog.hbs',
       data: {
         formula: baRoll.printFormula,
       },
@@ -5657,7 +5657,7 @@ class CharacterImporterDialog extends Application {
     const options = super.defaultOptions;
     options.id = 'character-importer-dialog';
     options.title = 'Importar Ajudante ou Personagem do ODO';
-    options.template = 'systems/olddragon2e-test/templates/dialog/character-importer-dialog.hbs';
+    options.template = 'systems/olddragon2e/templates/dialog/character-importer-dialog.hbs';
     options.width = 420;
     options.height = 'auto';
     return options;
@@ -6018,7 +6018,7 @@ const registerSettings = function () {
 
       // O módulo Forien's Ammo Swapper depende deste setting; não bloqueamos desligar,
       // só avisamos que o rastreamento vai parar de funcionar corretamente pra ele.
-      if (value === false && game.modules.get('forien-ammo-swapper-test')?.active) {
+      if (value === false && game.modules.get('forien-ammo-swapper')?.active) {
         const message = game.i18n.localize('olddragon2e.settings.ammoTracking.disableWarning');
         ui.notifications.warn(message);
         ChatMessage.create({
@@ -7976,7 +7976,7 @@ Hooks.once('setup', async () => {
   // dele (Forien's Ammo Swapper) estiver ativo neste mundo. Settings de escopo
   // 'world' só podem ser alterados por um GM — sem essa checagem, cada cliente
   // jogador tentaria (e falharia) a mesma chamada.
-  const ammoModuleActive = game.modules.get('forien-ammo-swapper-test')?.active;
+  const ammoModuleActive = game.modules.get('forien-ammo-swapper')?.active;
   if (game.user.isGM && ammoModuleActive && !game.settings.get('olddragon2e', 'ammoTracking')) {
     ChatMessage.create({
       user: game.user.id,
@@ -8037,7 +8037,7 @@ Hooks.on('preUpdateActor', (actor, data) => {
 Hooks.on('renderGamePause', (_app, html) => {
   const img = html.querySelector('img');
   if (!img) return;
-  img.src = 'systems/olddragon2e-test/assets/game-paused.webp';
+  img.src = 'systems/olddragon2e/assets/game-paused.webp';
   img.classList.remove('fa-spin');
 });
 //# sourceMappingURL=olddragon2e.js.map
